@@ -51,38 +51,34 @@ Applications include:
 
 The one-dimensional transient heat conduction equation is:
 
-\[
-\frac{\partial T}{\partial t} = D \frac{\partial^2 T}{\partial x^2}
-\]
+**∂T/∂t = D ∂²T/∂x²**
 
 Where:
-- \(T(x,t)\) is the temperature,
-- \(D\) is the thermal diffusivity,
-- \(x\) is the spatial coordinate,
-- \(t\) is time.
+- **T(x,t)** is the temperature,
+- **D** is the thermal diffusivity,
+- **x** is the spatial coordinate,
+- **t** is time.
 
 ---
 
 ## Geometry and Conditions
 
 **Domain**
-- 1D wall of length \(L = 0.31 \, \text{m}\)
+- 1D wall of length **L = 0.31 m**
 
 **Material Property**
-- Thermal diffusivity: \(D = 93 \, \text{cm}^2/\text{hr}\)
+- Thermal diffusivity: **D = 93 cm²/hr**
 
 **Initial Condition**
-\[
-T(x,0) = 38^\circ\text{C}
-\]
+- Temperature at start : **T(x,0) = 38°C**
+
 
 **Boundary Conditions (Dirichlet)**
-\[
-T(0,t) = T(L,t) = 149^\circ\text{C}
-\]
+- Temperature at starting position **T(0,t) = T(L,t) = 149°C**
+
 
 **Spatial Discretization**
-- \(\Delta x = 0.05 \, \text{m}\)
+- Spatial step: **Δx = 0.05 m**
 
 ---
 
@@ -90,13 +86,12 @@ T(0,t) = T(L,t) = 149^\circ\text{C}
 
 The analytical solution used for validation is:
 
-\[
-T(x,t) = T_{sur} + 2(T_{in} - T_{sur})
-\sum_{m=1}^{\infty}
-\frac{1 - (-1)^m}{m\pi}
-\exp\left(-D\left(\frac{m\pi}{L}\right)^2 t\right)
-\sin\left(\frac{m\pi x}{L}\right)
-\]
+- **T(x, t)** is the temperature at position *x* and time *t*
+- **T_sur** is the imposed surface temperature
+- **T_in** is the initial uniform temperature
+- **D** is the thermal diffusivity
+- **L** is the wall length
+- **m** is the Fourier series index
 
 This solution provides a reference temperature at any position \(x\) and time \(t\).
 
@@ -108,9 +103,14 @@ This solution provides a reference temperature at any position \(x\) and time \(
 - Second-order in space and time
 - Conditionally stable
 - Stability condition:
-\[
-r = \frac{D \Delta t}{(\Delta x)^2} \leq 1
-\]
+- 
+  **r = D · Δt / (Δx)² ≤ 1**
+
+Where:
+- **r** is the stability parameter,
+- **D** is the thermal diffusivity,
+- **Δt** is the time step,
+- **Δx** is the spatial step.
 
 ---
 
@@ -239,7 +239,9 @@ Handles all output operations.
 
 The full class architecture and relationships are illustrated below:
 
-![UML Architecture Diagram](UML_graph.png)
+![UML Architecture Diagram]
+
+<img width="1540" height="764" alt="UML_graph" src="https://github.com/user-attachments/assets/7ae40d41-f1fb-4afe-8527-4f11639c88b5" />
 
 *(Composition, inheritance, aggregation, and usage relationships are explicitly represented.)*
 
@@ -291,8 +293,8 @@ The code follows **SOLID principles**:
 2. Scott Collis,  
    *An Introduction to Numerical Analysis for Computational Fluid Dynamics*,  
    Technical Report SAND2005-2745, Sandia National Laboratories, 2005.
-<img width="1540" height="764" alt="UML_graph" src="https://github.com/user-attachments/assets/7ae40d41-f1fb-4afe-8527-4f11639c88b5" />
-
 
 ---
+
+*No computers or coffee machines were (almost) harmed in the making of this code.*
 
